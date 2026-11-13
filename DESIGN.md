@@ -235,6 +235,7 @@ Contidos e precisos: linhas finas, pouco volume, e só o botão principal brilha
 - **Focus:** a linha passa para ouro velho; sem brilho.
 - **Error:** resumo no topo do formulário com filete coral à esquerda e mensagem em erro-coral (13.5px) embaixo de cada campo com problema; a linha do campo e o contorno das opções ficam coral. Caixa de aceite no mesmo anel dourado da autoavaliação.
 - **Diálogo:** retângulo superficie-camara com borda osso a .16, até 640px, fundo escurecido a .82 com desfoque de 6px.
+- **Etapas:** o formulário tem 4 telas curtas: perfil (profissão, tempo de atuação, harmonização), momento (dificuldade, curso anterior), contato (nome, WhatsApp, e-mail) e final (cidade, Instagram e registro opcionais, aceite). No topo, "Etapa N de 4" e uma barra em 4 traços de 2px que se enchem de ouro. Cada etapa é validada antes de seguir; as etapas só de toque avançam sozinhas quando a última pergunta é respondida. A etapa entra deslizando 22px na direção do movimento (sem movimento em reduced motion). "Voltar" é texto com seta, à esquerda do botão dourado, e a navegação fica presa no rodapé da caixa. Altura mínima de 720px para a caixa não pular entre etapas.
 
 ### Navigation
 - **Topo:** logo à esquerda (34px; 28px no celular) e botão fantasma à direita, sobre o palco transparente. Ao rolar ganha fundo preto a .93 com desfoque de 14px e linha fina embaixo.

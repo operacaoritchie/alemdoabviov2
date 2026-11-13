@@ -410,6 +410,32 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
 .btn[disabled]{opacity:.6;cursor:wait}
 .erro{color:#E29A86;font-size:14px;margin:0}
 .erro:not(:empty){margin:-12px 0 24px;padding:12px 0 12px 16px;border-left:1px solid #E29A86}
+/* Formulário em etapas */
+.form-topo{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px 20px;margin:0 44px 30px 0}
+.form-topo .rotulo{margin:0}
+.progresso{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.progresso i{position:relative;height:2px;background:rgba(237,230,216,.14);overflow:hidden}
+.progresso i::after{content:"";position:absolute;inset:0;background:var(--ouro);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.progresso i.feito::after{transform:none}
+.etapa{grid-column:2;grid-row:1;margin:0;font-size:13.5px;color:var(--suave);font-variant-numeric:tabular-nums}
+.passo h2:focus{outline:none}
+.passo .sub{margin-bottom:28px}
+.passo.entra{animation:passoEntra .5s var(--ease) both}
+.passo.entra.de-volta{animation-name:passoVolta}
+@keyframes passoEntra{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+@keyframes passoVolta{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+.form-dentro{display:flex;flex-direction:column;min-height:min(720px,calc(100dvh - 26px))}
+.form-nav{display:flex;align-items:center;gap:10px;margin-top:auto;position:sticky;bottom:0;z-index:2;padding:22px 0 clamp(0px,2vw,6px);background:linear-gradient(to bottom,transparent,var(--superficie) 34%)}
+.form-nav::after{content:"";position:absolute;left:0;right:0;top:100%;height:clamp(24px,5vw,48px);background:var(--superficie)}
+.form-nav .btn{width:auto;flex:1}
+.form-nav [hidden]{display:none}
+.voltar{display:inline-flex;align-items:center;gap:6px;min-height:60px;padding:0 18px 0 10px;border:0;border-radius:999px;background:none;color:var(--suave);font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:color .3s,box-shadow .3s}
+.voltar svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;transition:transform .3s var(--ease)}
+.voltar:hover{color:var(--tinta);box-shadow:inset 0 0 0 1px rgba(237,230,216,.22)}
+.voltar:hover svg{transform:translateX(-3px)}
+.voltar:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
+.fx-reduzido .passo.entra,.fx-reduzido .progresso i::after{animation:none;transition:none}
+@media (prefers-reduced-motion:reduce){.passo.entra{animation:none}.progresso i::after{transition:none}}
 @media (max-width:560px){.dupla{grid-template-columns:1fr}}
 
 /* ---------- movimento reduzido ---------- */
@@ -723,54 +749,79 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
 
 <a data-evt="cta_fixo" class="btn barra abre-form" id="barra" href="https://wa.me/5511936206406?text=EU%20QUERO%20-%20Al%C3%A9m%20do%20%C3%93bvio%20(4%2C%205%20e%206%20de%20dezembro)"><span>Quero minha vaga em dezembro</span><span class="btn-mira" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6.2"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4"/><circle class="nucleo" cx="10" cy="10" r="1.7"/></svg></span></a>
 
-<dialog class="form" id="form" aria-labelledby="form-titulo">
+<dialog class="form" id="form" aria-label="Inscrição no Além do Óbvio">
   <button class="fechar" type="button" aria-label="Fechar formulário" data-fechar><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
   <form class="form-dentro" id="form-lead" novalidate>
-    <p class="rotulo">Além do Óbvio</p>
-    <h2 id="form-titulo">Conte um pouco sobre você</h2>
-    <p class="sub">Leva cerca de 2 minutos. Em seguida, você continua a conversa com a nossa equipe no WhatsApp, sem compromisso.</p>
-    <p class="erro" id="form-erro" role="alert"></p>
-    <div class="campo"><label for="f-nome">Nome completo</label><input id="f-nome" name="name" type="text" autocomplete="name" required></div>
-    <div class="dupla">
-      <div class="campo"><label for="f-whats">WhatsApp</label><input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-9999" required></div>
-      <div class="campo"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+    <div class="form-topo">
+      <p class="rotulo">Além do Óbvio</p>
+      <div class="progresso" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="etapa" id="form-etapa" aria-live="polite">Etapa 1 de 4</p>
     </div>
-    <div class="campo"><label for="f-cidade">Cidade</label><input id="f-cidade" name="city" type="text" autocomplete="address-level2" required></div>
-    <fieldset class="campo"><legend>Profissão</legend><div class="chips">
+    <p class="erro" id="form-erro" role="alert"></p>
+
+    <section class="passo" data-passo="1" aria-labelledby="form-titulo">
+      <h2 id="form-titulo" tabindex="-1">Conte um pouco sobre você</h2>
+      <p class="sub">Quatro etapas curtas. Em seguida, você continua a conversa com a nossa equipe no WhatsApp, sem compromisso.</p>
+      <fieldset class="campo"><legend>Profissão</legend><div class="chips">
       <label><input type="radio" name="profession" value="Dentista" required><span>Dentista</span></label>
       <label><input type="radio" name="profession" value="Biomédico(a)"><span>Biomédico(a)</span></label>
       <label><input type="radio" name="profession" value="Médico(a)"><span>Médico(a)</span></label>
       <label><input type="radio" name="profession" value="Outra"><span>Outra</span></label>
     </div></fieldset>
-    <div class="campo" id="campo-outra" hidden><label for="f-outra">Qual?</label><input id="f-outra" name="professionOther" type="text"></div>
-    <fieldset class="campo"><legend>Há quanto tempo você atua no mercado?</legend><div class="chips">
+      <div class="campo" id="campo-outra" hidden><label for="f-outra">Qual?</label><input id="f-outra" name="professionOther" type="text"></div>
+      <fieldset class="campo"><legend>Há quanto tempo você atua no mercado?</legend><div class="chips">
       <label><input type="radio" name="experience" value="Ainda não atuo" required><span>Ainda não atuo</span></label>
       <label><input type="radio" name="experience" value="Menos de 1 ano"><span>Menos de 1 ano</span></label>
       <label><input type="radio" name="experience" value="1 a 2 anos"><span>1 a 2 anos</span></label>
       <label><input type="radio" name="experience" value="3 a 5 anos"><span>3 a 5 anos</span></label>
       <label><input type="radio" name="experience" value="Mais de 5 anos"><span>Mais de 5 anos</span></label>
     </div></fieldset>
-    <fieldset class="campo"><legend>Você já faz harmonização facial?</legend><div class="chips">
+      <fieldset class="campo"><legend>Você já faz harmonização facial?</legend><div class="chips">
       <label><input type="radio" name="fullFace" value="Ainda não faço" required><span>Ainda não faço</span></label>
       <label><input type="radio" name="fullFace" value="Faço alguns procedimentos"><span>Faço alguns procedimentos</span></label>
       <label><input type="radio" name="fullFace" value="Já faço Full Face"><span>Já faço Full Face</span></label>
     </div></fieldset>
-    <fieldset class="campo"><legend>Qual é a sua maior dificuldade hoje?</legend><div class="chips">
+    </section>
+
+    <section class="passo" data-passo="2" aria-labelledby="form-titulo-2" hidden>
+      <h2 id="form-titulo-2" tabindex="-1">O seu momento hoje</h2>
+      <p class="sub">Assim a equipe já chega na conversa sabendo o que importa para você.</p>
+      <fieldset class="campo"><legend>Qual é a sua maior dificuldade hoje?</legend><div class="chips">
       <label><input type="radio" name="difficulty" value="Segurança técnica" required><span>Segurança técnica</span></label>
       <label><input type="radio" name="difficulty" value="Posicionamento"><span>Posicionamento</span></label>
       <label><input type="radio" name="difficulty" value="Captação de pacientes"><span>Captação de pacientes</span></label>
       <label><input type="radio" name="difficulty" value="Faturamento"><span>Faturamento</span></label>
     </div></fieldset>
-    <fieldset class="campo"><legend>Você já fez algum curso com o Dr. Ritchie?</legend><div class="chips">
+      <fieldset class="campo"><legend>Você já fez algum curso com o Dr. Ritchie?</legend><div class="chips">
       <label><input type="radio" name="attended" value="Sim" required><span>Sim</span></label>
       <label><input type="radio" name="attended" value="Não"><span>Não</span></label>
     </div></fieldset>
-    <div class="dupla">
-      <div class="campo"><label for="f-insta">Instagram <em>(opcional)</em></label><input id="f-insta" name="instagram" type="text" placeholder="@seuperfil"></div>
-      <div class="campo"><label for="f-registro">Registro profissional <em>(opcional)</em></label><input id="f-registro" name="registry" type="text" placeholder="CRO / CRM / CRBM"></div>
+    </section>
+
+    <section class="passo" data-passo="3" aria-labelledby="form-titulo-3" hidden>
+      <h2 id="form-titulo-3" tabindex="-1">Como falamos com você?</h2>
+      <p class="sub">Usamos só para o atendimento sobre o curso.</p>
+      <div class="campo"><label for="f-nome">Nome completo</label><input id="f-nome" name="name" type="text" autocomplete="name" required></div>
+      <div class="campo"><label for="f-whats">WhatsApp</label><input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 99999-9999" required></div>
+      <div class="campo"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+    </section>
+
+    <section class="passo" data-passo="4" aria-labelledby="form-titulo-4" hidden>
+      <h2 id="form-titulo-4" tabindex="-1">Para finalizar</h2>
+      <p class="sub">Instagram e registro são opcionais, mas ajudam a equipe a te conhecer antes da conversa.</p>
+      <div class="campo"><label for="f-cidade">Cidade</label><input id="f-cidade" name="city" type="text" autocomplete="address-level2" required></div>
+      <div class="dupla">
+        <div class="campo"><label for="f-insta">Instagram <em>(opcional)</em></label><input id="f-insta" name="instagram" type="text" placeholder="@seuperfil"></div>
+        <div class="campo"><label for="f-registro">Registro profissional <em>(opcional)</em></label><input id="f-registro" name="registry" type="text" placeholder="CRO / CRM / CRBM"></div>
+      </div>
+      <label class="aceite"><input type="checkbox" id="f-aceite" required><span>Aceito receber contato da equipe do Dr. Ritchie pelo WhatsApp sobre o Além do Óbvio.</span></label>
+    </section>
+
+    <div class="form-nav">
+      <button class="voltar" type="button" id="form-voltar" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5L7 10l5.5 5.5"/></svg><span>Voltar</span></button>
+      <button class="btn" type="button" id="form-avancar"><span>Continuar</span><span class="btn-mira" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6.2"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4"/><circle class="nucleo" cx="10" cy="10" r="1.7"/></svg></span></button>
+      <button class="btn" type="submit" id="form-enviar" hidden><span>Continuar no WhatsApp</span><span class="btn-mira" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6.2"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4"/><circle class="nucleo" cx="10" cy="10" r="1.7"/></svg></span></button>
     </div>
-    <label class="aceite"><input type="checkbox" id="f-aceite" required><span>Aceito receber contato da equipe do Dr. Ritchie pelo WhatsApp sobre o Além do Óbvio.</span></label>
-    <button class="btn" type="submit" id="form-enviar"><span>Continuar no WhatsApp</span><span class="btn-mira" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6.2"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4"/><circle class="nucleo" cx="10" cy="10" r="1.7"/></svg></span></button>
   </form>
 </dialog>
 
@@ -1059,6 +1110,68 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
     r.addEventListener("change", function(){ campoOutra.hidden = form.elements.profession.value !== "Outra"; });
   });
 
+  /* Etapas: 4 telas curtas; cada uma é validada antes de seguir */
+  var passos = Array.prototype.slice.call(form.querySelectorAll(".passo")), total = passos.length, atual = 1;
+  var avancar = document.getElementById("form-avancar"), voltar = document.getElementById("form-voltar");
+  var rotuloEtapa = document.getElementById("form-etapa"), tracos = form.querySelectorAll(".progresso i");
+  function passoDe(el){ var sec = el.closest(".passo"); return sec ? +sec.dataset.passo : total; }
+  function irPara(n, opcoes){
+    opcoes = opcoes || {};
+    var antes = atual; atual = Math.max(1, Math.min(total, n));
+    passos.forEach(function(sec){
+      var este = +sec.dataset.passo === atual;
+      sec.hidden = !este;
+      sec.classList.remove("entra", "de-volta");
+      if (este && antes !== atual && !reduzido) { void sec.offsetWidth; sec.classList.add("entra"); if (atual < antes) sec.classList.add("de-volta"); }
+    });
+    tracos.forEach(function(t, i){ t.classList.toggle("feito", i < atual); });
+    rotuloEtapa.textContent = "Etapa " + atual + " de " + total;
+    voltar.hidden = atual === 1;
+    avancar.hidden = atual === total;
+    enviar.hidden = atual !== total;
+    erro.textContent = "";
+    dialogo.scrollTop = 0;
+    if (opcoes.foco !== false) {
+      var sec = passos[atual - 1], texto = sec.querySelector('input[type=text],input[type=tel],input[type=email]');
+      // nas etapas de digitar, o cursor já vai para o primeiro campo vazio; nas de toque, para o título
+      var vazio = Array.prototype.filter.call(sec.querySelectorAll('input[type=text],input[type=tel],input[type=email]'), function(i){ return !i.closest("[hidden]") && !i.value; })[0];
+      ((texto && vazio) || sec.querySelector("h2")).focus({preventScroll:true});
+    }
+    if (antes !== atual) camada("ao_form_step", { step: atual, cta: ctaAtual });
+  }
+  function mostrarFalhas(falhas){
+    form.querySelectorAll(".erro-campo").forEach(function(p){ p.remove(); });
+    falhas.forEach(function(x, n){ marcarErro(x[0], x[1], n); });
+    erro.textContent = falhas.length === 1 ? "Falta 1 resposta nesta etapa. Ela está marcada abaixo." : "Faltam " + falhas.length + " respostas nesta etapa. Elas estão marcadas abaixo.";
+    falhas[0][0].focus({preventScroll:true});
+    (falhas[0][0].closest(".campo") || falhas[0][0]).scrollIntoView({block:"center", behavior: reduzido ? "auto" : "smooth"});
+  }
+  function falhasDoPasso(n){ return validar().filter(function(x){ return passoDe(x[0]) === n; }); }
+  function seguir(){
+    var f = falhasDoPasso(atual);
+    if (f.length) { mostrarFalhas(f); return; }
+    form.querySelectorAll(".erro-campo").forEach(function(p){ p.remove(); });
+    irPara(atual + 1);
+  }
+  irPara(1, { foco: false });
+  avancar.addEventListener("click", seguir);
+  voltar.addEventListener("click", function(){ irPara(atual - 1); });
+  // Enter num campo de texto avança a etapa, em vez de enviar o formulário inteiro
+  form.addEventListener("keydown", function(ev){
+    if (ev.key === "Enter" && atual < total && ev.target.matches("input") && ev.target.type !== "checkbox") { ev.preventDefault(); seguir(); }
+  });
+  // Etapas só de toque: quando a última pergunta é respondida, segue sozinho
+  var completa = {};
+  function etapaDeToque(n){ return !passos[n - 1].querySelector('input[type=text]:not([name=professionOther]),input[type=tel],input[type=email]'); }
+  form.addEventListener("change", function(ev){
+    if (ev.target.type !== "radio") return;
+    var n = passoDe(ev.target), estava = completa[n], agora = !falhasDoPasso(n).length;
+    completa[n] = agora;
+    if (agora && !estava && n === atual && etapaDeToque(n) && valor("profession") !== "Outra") {
+      setTimeout(function(){ if (atual === n && !falhasDoPasso(n).length) irPara(n + 1); }, reduzido ? 150 : 420);
+    }
+  });
+
   function telefone(bruto){
     var v = String(bruto).trim(), d = v.replace(/\D/g, "");
     if (v.charAt(0) === "+") return d.length >= 10 && d.length <= 15 ? d : null;
@@ -1137,12 +1250,12 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
     ev.preventDefault();
     if (enviando) return;
     form.querySelectorAll(".erro-campo").forEach(function(p){ p.remove(); });
+    if (atual < total) { seguir(); return; }
     var falhas = validar();
     if (falhas.length){
-      falhas.forEach(function(x, n){ marcarErro(x[0], x[1], n); });
-      erro.textContent = falhas.length === 1 ? "Falta 1 resposta. Ela está marcada abaixo." : "Faltam " + falhas.length + " respostas. Elas estão marcadas abaixo.";
-      falhas[0][0].focus({preventScroll:true});
-      (falhas[0][0].closest(".campo") || falhas[0][0]).scrollIntoView({block:"center", behavior: reduzido ? "auto" : "smooth"});
+      var primeiro = passoDe(falhas[0][0]);
+      if (primeiro !== atual) irPara(primeiro, { foco: false });
+      mostrarFalhas(falhas.filter(function(x){ return passoDe(x[0]) === primeiro; }));
       return;
     }
     erro.textContent = "";
