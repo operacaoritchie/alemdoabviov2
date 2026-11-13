@@ -19,24 +19,24 @@ colors:
   erro-coral: "#E29A86"
 typography:
   display:
-    fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
+    fontFamily: "Cormorant Garamond, Cormorant, Garamond, Georgia, serif"
     fontSize: "clamp(46px,5.6vw,96px)"
     fontWeight: 400
     lineHeight: 0.98
     letterSpacing: "-0.03em"
   headline:
-    fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
+    fontFamily: "Cormorant Garamond, Cormorant, Garamond, Georgia, serif"
     fontSize: "clamp(40px,6.2vw,96px)"
     fontWeight: 400
     lineHeight: 1.02
     letterSpacing: "-0.01em"
   title:
-    fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
+    fontFamily: "Cormorant Garamond, Cormorant, Garamond, Georgia, serif"
     fontSize: "clamp(28px,2.6vw,40px)"
     fontWeight: 400
     lineHeight: 1.1
   eyebrow:
-    fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
+    fontFamily: "Cormorant Garamond, Cormorant, Garamond, Georgia, serif"
     fontSize: "clamp(17px,1.35vw,20px)"
     fontWeight: 400
     lineHeight: 1.3
@@ -118,7 +118,7 @@ components:
 
 O design se comporta como o olhar do Dr. Ritchie diante de um rosto: escuro ao redor, luz só onde importa, e linhas finas que medem e explicam. A página é uma sequência de cenas de cinema em fundo preto de sala, com o ouro velho reservado para o que deve ser visto: a tese, o número, o botão, o traço de análise. O resultado é editorial e cerimonial, mas preciso; nada é decorado sem motivo.
 
-A densidade é baixa e a escala é dramática. Títulos em Bodoni Moda chegam a 176px com itálico para a palavra que carrega o sentido; o corpo em Manrope fica em 17px e cinza pergaminho, recuado. Cada seção é uma cena com uma ideia, separada por linhas finas de osso translúcido, e o movimento de rolagem conta a história: créditos que acendem letra por letra, foco que sai do desfoque, um rolo de filme que desliza.
+A densidade é baixa e a escala é dramática. Títulos em Cormorant Garamond chegam a 176px com itálico para a palavra que carrega o sentido; o corpo em Manrope fica em 17px e cinza pergaminho, recuado. Cada seção é uma cena com uma ideia, separada por linhas finas de osso translúcido, e o movimento de rolagem conta a história: créditos que acendem letra por letra, foco que sai do desfoque, um rolo de filme que desliza.
 
 A assinatura visual é "O olhar do Doutor": traços dourados de análise (terços, eixos, pontos) desenhados sobre fotos reais, com uma lente circular que acende a imagem sob o cursor. Ela é a tese transformada em imagem e deve ser a referência de qualquer elemento novo.
 
@@ -158,21 +158,21 @@ Uma paleta de sala escura: quase preto, osso quente e um único ouro envelhecido
 
 ## Typography
 
-**Display Font:** Bodoni Moda (com Didot, Bodoni 72, Georgia)
+**Display Font:** Cormorant Garamond (com Cormorant, Garamond, Georgia), pesos 400 e 500
 **Body Font:** Manrope (com system-ui)
 **Label/Mono Font:** IBM Plex Mono (com ui-monospace)
 
-**Character:** Uma serifa didone de cartaz, alto contraste e itálico expressivo, contra uma sans geométrica e calma. A Bodoni fala; a Manrope explica; a mono mede.
+**Character:** Uma garalde clássica de traço fino e itálico caligráfico, elegante sem gritar, contra uma sans geométrica e calma. A Cormorant fala; a Manrope explica; a mono mede.
 
 ### Hierarchy
-- **Display** (400, clamp 46–96px, entrelinha 0.98, -0.03em): a tese no título de abertura, com a segunda frase em ouro itálico e recuada. Acima dela, a marca "Além do *Óbvio*" em Bodoni clamp 26–36px. O nome do Doutor usa clamp 64–170px. No celular, a tese fica em clamp 38–64px.
+- **Display** (500, clamp 46–96px, entrelinha 0.98, -0.015em, sem animação de entrada: o título já carrega pronto): a tese no título de abertura, com a segunda frase em ouro itálico e recuada. Acima dela, a marca "Além do *Óbvio*" em Cormorant clamp 26–36px. O nome do Doutor usa clamp 64–170px. No celular, a tese fica em clamp 38–64px.
 - **Headline** (400, clamp 40–96px, 1.02): títulos de cena (h2). Variantes de cena ficam entre clamp 40–88px; a palavra de sentido vai em itálico.
 - **Title** (400, clamp 28–40px, 1.1): itens numerados, títulos de cartão (28px na grade de incluídos) e perguntas do FAQ (clamp 21–28px, 1.25).
-- **Eyebrow** (Bodoni itálico, clamp 17–20px, 1.3, cinza pergaminho): o rótulo acima de cada título, sempre em itálico e nunca em caixa alta.
+- **Eyebrow** (Cormorant itálico, clamp 19–23px, peso 500, 1.3, cinza pergaminho): o rótulo acima de cada título, sempre em itálico e nunca em caixa alta.
 - **Body** (Manrope 400, 17px, 1.65; 16px no celular): texto corrido, limitado a 62ch (`.medida`) e 44–52ch em blocos de apoio.
 - **Label** (Manrope 500, 13.5–14px, cinza pergaminho): rótulos de campo, legendas de número, créditos.
 - **Mono** (IBM Plex Mono, 10–11px, 0.16–0.2em, caixa alta): só instrumentos, como o medidor FOCO, os créditos de canto e as anotações dos traços.
-- **Números de palco** (Bodoni 400, até clamp 110–320px, entrelinha 0.78, numerais alinhados e tabulares): placar de prática, dias 04/05/06 e números de autoridade.
+- **Números de palco** (Cormorant 500, até clamp 110–320px, entrelinha 0.78, numerais alinhados e tabulares): placar de prática, dias 04/05/06 e números de autoridade.
 
 ### Named Rules
 **The Itálico com Sentido Rule.** O itálico marca a palavra que carrega a tese ou o dado ("visão", "Óbvio", o dia do meio). Nunca uma frase inteira, nunca enfeite.
@@ -228,7 +228,7 @@ Contidos e precisos: linhas finas, pouco volume, e só o botão principal brilha
 - **Background:** nenhum; o "cartão" é um bloco com linha fina no topo ou na base.
 - **Shadow Strategy:** nenhuma (ver Elevation & Depth).
 - **Border:** linha-fina de 1px dividindo itens, grades e FAQ.
-- **Internal Padding:** 30–36px no eixo vertical; numeração em Bodoni itálico cinza (01, 02…).
+- **Internal Padding:** 30–36px no eixo vertical; numeração em Cormorant itálico cinza (01, 02…).
 
 ### Inputs / Fields
 - **Style:** só a linha de baixo (1px osso a .28), fundo transparente, texto 17px, sem raio.
@@ -249,7 +249,7 @@ Lista de afirmações separadas por linha fina, cada uma com uma marca circular 
 
 ### Do:
 - **Do** manter o fundo em preto-sala e reservar o ouro velho para tese, número, ação, seleção e traço de análise.
-- **Do** escrever títulos em Bodoni Moda 400 com itálico só na palavra de sentido, e rótulos de seção em Bodoni itálico cinza pergaminho.
+- **Do** escrever títulos em Cormorant Garamond 500 com itálico só na palavra de sentido, e rótulos de seção em Cormorant itálico cinza pergaminho.
 - **Do** separar conteúdo com linhas de 1px em linha-fina, não com caixas.
 - **Do** usar pílula para tudo que se clica, círculo para marcas e retângulo reto para o resto.
 - **Do** usar fotos reais da turma, recortadas a frio ou dissolvidas em preto por máscara.
