@@ -243,7 +243,7 @@ Contidos e precisos: linhas finas, pouco volume, e só o botão principal brilha
 Fotos reais escurecidas (brilho .42, saturação .35) quando ativas, com traços de análise em ouro velho de 1.2px que se desenham em 1.2s: linhas de terços e eixos, pontos sólidos, tracejado 4/5 e anotações em mono 10px caixa alta. Uma lente circular (raio 120px) segue o cursor e mostra a foto nítida, com anel dourado e marcas de mira.
 
 ### Autoavaliação
-Lista de afirmações separadas por linha fina, cada uma com uma marca circular de 22px em contorno dourado que se preenche ao marcar; o item marcado fica em ouro. Ao lado, um anel fino de 320px (220px no celular) que se completa em ouro com a contagem em Bodoni 96px.
+Lista de afirmações separadas por linha fina, cada uma com uma marca circular de 22px em contorno dourado que se preenche ao marcar; o item marcado fica em ouro. Ao lado, um anel fino de 320px (220px no celular) que se completa em ouro com a contagem em Cormorant 96px.
 
 ## Do's and Don'ts
 
