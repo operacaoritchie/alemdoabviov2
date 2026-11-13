@@ -165,7 +165,7 @@ Uma paleta de sala escura: quase preto, osso quente e um único ouro envelhecido
 **Character:** Uma garalde clássica de traço fino e itálico caligráfico, elegante sem gritar, contra uma sans geométrica e calma. A Cormorant fala; a Manrope explica; a mono mede.
 
 ### Hierarchy
-- **Display** (500, clamp 46–96px, entrelinha 0.98, -0.015em, sem animação de entrada: o título já carrega pronto): a tese no título de abertura, com a segunda frase em ouro itálico e recuada. Acima dela, a marca "Além do *Óbvio*" em Cormorant clamp 26–36px. O nome do Doutor usa clamp 64–170px. No celular, a tese fica em clamp 38–64px.
+- **Display** (500, clamp 46–96px, entrelinha 1.06, -0.015em, sem animação de entrada: o título já carrega pronto): a tese no título de abertura, com a segunda frase em ouro itálico e recuada. Acima dela, a marca "Além do *Óbvio*" em Cormorant clamp 26–36px. O nome do Doutor usa clamp 64–170px. No celular, a tese fica em clamp 38–64px.
 - **Headline** (400, clamp 40–96px, 1.02): títulos de cena (h2). Variantes de cena ficam entre clamp 40–88px; a palavra de sentido vai em itálico.
 - **Title** (400, clamp 28–40px, 1.1): itens numerados, títulos de cartão (28px na grade de incluídos) e perguntas do FAQ (clamp 21–28px, 1.25).
 - **Eyebrow** (Cormorant itálico, clamp 19–23px, peso 500, 1.3, cinza pergaminho): o rótulo acima de cada título, sempre em itálico e nunca em caixa alta.
