@@ -15,13 +15,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="sites-incriveis.css">
 <style>
 :root{
   --preto:#050505; --superficie:#0F0E0C; --osso:#EDE6D8; --tinta:#EDE6D8; --suave:#A39A8B;
   --ouro:#C9A35A; --ouro-escuro:#9C7A3C; --linha:rgba(237,230,216,.14);
-  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --display:"Cormorant Garamond","Cormorant","Garamond",Georgia,serif;
   --texto:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   --m:clamp(20px,4.4vw,72px);
@@ -34,7 +34,7 @@ body{margin:0;background:var(--preto);color:var(--tinta);font-family:var(--texto
 img{display:block;max-width:100%}
 a{color:inherit}
 ::selection{background:var(--ouro);color:var(--preto)}
-h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;letter-spacing:-.01em;line-height:1.02}
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;letter-spacing:-.005em;line-height:1.02}
 h2{font-size:clamp(40px,6.2vw,96px)}
 h2 em,h1 em{font-style:italic}
 h1,h2,h3{text-wrap:balance}
@@ -83,13 +83,10 @@ body::after{content:"";position:fixed;inset:0;z-index:45;pointer-events:none;bac
 .abertura-texto{position:relative;z-index:2;max-width:640px}
 .marca-abertura{font-family:var(--display);font-size:clamp(26px,2.4vw,36px);line-height:1;letter-spacing:-.01em;color:var(--tinta);margin:0 0 26px}
 .marca-abertura em{color:var(--ouro)}
-.titulo-abertura{font-size:clamp(46px,5.6vw,96px);line-height:.98;letter-spacing:-.03em;margin:0 0 30px;margin-left:-.03em;max-width:12ch}
+.titulo-abertura{font-size:clamp(46px,5.6vw,96px);line-height:.98;letter-spacing:-.015em;margin:0 0 30px;margin-left:-.03em;max-width:12ch}
 .titulo-abertura .linha{display:block}
 .titulo-abertura .palavra{display:inline-block;white-space:nowrap}
 .titulo-abertura em{color:var(--ouro);padding-left:.6em}
-.letra{display:inline-block;opacity:0}
-.creditos-prontos .letra{animation:credito .9s steps(1,end) forwards}
-@keyframes credito{0%{opacity:0}18%{opacity:.85;transform:translateX(.02em)}30%{opacity:.15}46%{opacity:1;transform:none}62%{opacity:.6}78%,100%{opacity:1}}
 .credito{opacity:0;transition:opacity 1.4s ease}
 .creditos-prontos .credito{opacity:1}
 .data-abertura{font-family:var(--display);font-style:italic;font-size:clamp(24px,2.4vw,34px);color:var(--tinta);margin-bottom:14px}
@@ -416,7 +413,7 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
 @media (max-width:560px){.dupla{grid-template-columns:1fr}}
 
 /* ---------- movimento reduzido ---------- */
-.fx-reduzido .letra,.fx-reduzido .credito{opacity:1!important;animation:none!important;transition:none!important}
+.fx-reduzido .credito{opacity:1!important;animation:none!important;transition:none!important}
 .fx-reduzido .abertura-foto img.base{opacity:1;transform:none;animation:none}
 .fx-reduzido .visao-foto{position:relative;height:70vh;width:100%}
 .fx-reduzido .visao-texto{width:100%;padding:60px var(--m)}
@@ -449,7 +446,7 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
   </figure>
   <div class="abertura-texto">
     <p class="marca-abertura credito">Além do <em>Óbvio</em></p>
-    <h1 class="titulo-abertura" aria-label="A técnica você aprende. A visão você desenvolve."><span class="linha" data-credito>A técnica você aprende.</span><em class="linha" data-credito>A visão você desenvolve.</em></h1>
+    <h1 class="titulo-abertura"><span class="linha">A técnica você aprende.</span><em class="linha">A visão você desenvolve.</em></h1>
     <p class="data-abertura credito">4, 5 e 6 de dezembro, em São Paulo</p>
     <p class="lead credito">Três dias de imersão presencial em Full Face com o Dr. Ritchie, para profissionais da Harmonização Facial que já atendem, com prática em pacientes reais.</p>
     <a data-evt="cta_hero" class="btn abre-form credito" href="https://wa.me/5511936206406?text=EU%20QUERO%20-%20Al%C3%A9m%20do%20%C3%93bvio%20(4%2C%205%20e%206%20de%20dezembro)"><span>Quero minha vaga em dezembro</span><span class="btn-mira" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6.2"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4"/><circle class="nucleo" cx="10" cy="10" r="1.7"/></svg></span></a>
@@ -826,7 +823,7 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
     var chave = Object.keys(ANGULOS).filter(function(k){ return bruto.indexOf(k) >= 0; })[0];
     if (!chave) return;
     var h1 = document.querySelector(".titulo-abertura"), lead = document.querySelector(".abertura .lead");
-    if (h1) { h1.innerHTML = ANGULOS[chave].h1; h1.removeAttribute("aria-label"); h1.classList.add("titulo-angulo", "credito"); }
+    if (h1) { h1.innerHTML = ANGULOS[chave].h1; h1.removeAttribute("aria-label"); h1.classList.add("titulo-angulo"); }
     if (lead && ANGULOS[chave].lead) lead.textContent = ANGULOS[chave].lead;
     rastreio.angulo = chave;
   })();
@@ -855,25 +852,11 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
   }
   camada("ao_page_view", { event_id: idPagina });
 
-  /* --- 1. Créditos de abertura: letras que acendem como película --- */
-  document.querySelectorAll("[data-credito]").forEach(function(linha, li){
-    var texto = linha.textContent; linha.textContent = "";
-    var passo = Math.min(70, 1100 / Math.max(1, texto.length));
-    linha.setAttribute("aria-hidden","true");
-    var palavra = null;
-    Array.from(texto).forEach(function(ch, i){
-      if (ch === " ") { linha.appendChild(document.createTextNode(" ")); palavra = null; return; }
-      // as letras de uma palavra ficam juntas: a quebra de linha só acontece entre palavras
-      if (!palavra) { palavra = document.createElement("span"); palavra.className = "palavra"; linha.appendChild(palavra); }
-      var s = document.createElement("span"); s.className = "letra"; s.textContent = ch;
-      s.style.animationDelay = (380 + li*520 + i*passo + Math.random()*120).toFixed(0) + "ms";
-      palavra.appendChild(s);
-    });
-  });
+  /* --- 1. Abertura: o título já chega pronto; o resto entra em sequência curta --- */
   var creditos = document.querySelectorAll(".abertura .credito");
-  creditos.forEach(function(el, i){ el.style.transitionDelay = (1500 + i*140) + "ms"; });
+  creditos.forEach(function(el, i){ el.style.transitionDelay = (250 + i*120) + "ms"; });
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.documentElement.classList.add("creditos-prontos"); }); });
-  setTimeout(function(){ creditos.forEach(function(el){ el.style.transitionDelay = ""; }); }, 5200);
+  setTimeout(function(){ creditos.forEach(function(el){ el.style.transitionDelay = ""; }); }, 2600);
 
   /* --- 1b. Títulos: cada linha sobe de trás de uma máscara --- */
   if (!reduzido) document.querySelectorAll("[data-mascara]").forEach(function(h){
