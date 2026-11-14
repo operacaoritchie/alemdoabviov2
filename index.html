@@ -129,9 +129,9 @@ body::after{content:"";position:fixed;inset:0;z-index:45;pointer-events:none;bac
 .pratica{padding:140px var(--m);display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,7vw,120px);border-top:1px solid var(--linha)}
 .pratica-cabeca{position:sticky;top:120px;align-self:start}
 .pratica-cabeca h2{font-size:clamp(40px,5vw,80px);margin-bottom:28px}
-.placar{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:0 0 72px;border-bottom:1px solid var(--linha);padding-bottom:48px}
+.placar{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;margin:0 0 72px;border-bottom:1px solid var(--linha);padding-bottom:48px}
 .placar .num{font-family:var(--display);font-size:clamp(84px,11vw,180px);line-height:.9;letter-spacing:-.04em;display:flex;align-items:baseline;gap:.12em;font-variant-numeric:lining-nums tabular-nums}
-.placar .num small{font-size:.32em;font-style:italic;color:var(--suave)}
+.placar .num small{font-size:.32em;font-style:italic;color:var(--suave);letter-spacing:.005em;white-space:nowrap}
 .placar .num .alto{color:var(--ouro)}
 .placar .leg{font-size:14px;color:var(--suave);margin-top:14px;display:block}
 .itens{list-style:none;margin:0;padding:0;counter-reset:item}
@@ -476,11 +476,11 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
     <p class="data-abertura credito">4, 5 e 6 de dezembro, em São Paulo</p>
     <p class="lead credito">Três dias de imersão presencial em Full Face com o Dr. Ritchie, para profissionais da Harmonização Facial que já atendem, com prática em pacientes reais.</p>
     <a data-evt="cta_hero" class="btn abre-form credito" href="https://wa.me/5511936206406?text=EU%20QUERO%20-%20Al%C3%A9m%20do%20%C3%93bvio%20(4%2C%205%20e%206%20de%20dezembro)"><span>Quero minha vaga em dezembro</span><span class="btn-mira" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6.2"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4"/><circle class="nucleo" cx="10" cy="10" r="1.7"/></svg></span></a>
-    <p class="numeros-linha credito"><span>Última turma de 2026</span><span>Somente <b>12</b> vagas</span></p>
+    <p class="numeros-linha credito"><span>Última turma de 2026</span><span>Somente <b>13</b> vagas</span></p>
   </div>
   <dl class="ficha credito">
     <dt>Onde</dt><dd>Av. Magalhães de Castro, 4800, Cidade Jardim, São Paulo</dd>
-    <dt>Formato</dt><dd>Presencial, os três dias inteiros, em turma de no máximo 12 alunos</dd>
+    <dt>Formato</dt><dd>Presencial, os três dias inteiros, em turma de no máximo 13 alunos</dd>
   </dl>
 </section>
 
@@ -531,8 +531,8 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
   <div>
     <div class="placar" aria-hidden="true">
       <div>
-        <div class="num"><span>3</span><small>a</small><span class="alto" data-fx="contar" data-fx-inicio="3" data-fx-fim="6" data-fx-duracao="1400">6</span></div>
-        <span class="leg">full faces por aluno</span>
+        <div class="num"><small>no mínimo</small><span class="alto">3</span></div>
+        <span class="leg">pacientes por aluno</span>
       </div>
       <div>
         <div class="num"><span>2</span><small>a</small><span class="alto" data-fx="contar" data-fx-inicio="2" data-fx-fim="3" data-fx-duracao="1200">3</span></div>
@@ -688,7 +688,7 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
       <p class="pergunta">Quer saber o investimento e as condições da última turma de 2026?</p>
       <ul>
         <li>Os três dias, o kit e a alimentação incluídos</li>
-        <li>Somente 12 vagas nesta turma</li>
+        <li>Somente 13 vagas nesta turma</li>
       </ul>
       <a data-evt="cta_investimento" class="btn abre-form" href="https://wa.me/5511936206406?text=EU%20QUERO%20-%20Al%C3%A9m%20do%20%C3%93bvio%20(4%2C%205%20e%206%20de%20dezembro)"><span>Receber investimento e condições</span><span class="btn-mira" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6.2"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4"/><circle class="nucleo" cx="10" cy="10" r="1.7"/></svg></span></a>
     </div>
@@ -710,7 +710,7 @@ fieldset.campo{border:0;padding:0;margin:0 0 22px}
     <details><summary>Para quem é indicado?</summary><p>Para profissionais da Harmonização Facial que atendem pacientes e querem evoluir tecnicamente e na visão clínica. A equipe confirma os pré-requisitos na inscrição.</p></details>
     <details><summary>Quando e onde será?</summary><p>Nos dias 4, 5 e 6 de dezembro de 2026, na Av. Magalhães de Castro, 4800, Cidade Jardim, São Paulo. Local sujeito a alterações.</p></details>
     <details><summary>É presencial? Qual é a carga horária?</summary><p>É presencial. São três dias, o dia todo.</p></details>
-    <details><summary>Haverá prática com pacientes?</summary><p>Sim. Cada aluno realiza de 3 a 6 full faces completas em pacientes reais, com supervisão do Dr. Ritchie.</p></details>
+    <details><summary>Haverá prática com pacientes?</summary><p>Sim. Cada aluno atende no mínimo 3 pacientes reais, com supervisão do Dr. Ritchie.</p></details>
     <details><summary>Receberei certificado?</summary><p>Sim, certificado de conclusão e troféu.</p></details>
     <details><summary>O que está incluído?</summary><p>Os três dias de imersão, material didático impresso, Press Kit, scrub, jaleco e pantufa, alimentação (welcome coffee, almoço, lanche da tarde e jantar), coquetel do dia 1, certificado e troféu.</p></details>
     <details><summary>Qual é o investimento?</summary><p>Clique em “Receber investimento e condições” e a equipe envia o valor e as condições de pagamento pelo WhatsApp.</p></details>
